@@ -10,9 +10,9 @@
 #include <errno.h>
 #include <time.h>
 #include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
+//#include <sys/wait.h>
+//#include <unistd.h>
+#include <io.h>
 using namespace std;
  
 #define WORDLEN 10
@@ -29,11 +29,7 @@ int main()
     while (word[k++] != NULL) {
         word[k] = strtok(NULL, " ");
     }
- 
-    for (int i = 0; word[i]; i++) {
-        cout << "word[" << i << ']' << word[i] << endl;
-    }
-	char checking_first = *word[0];
+ 	char checking_first = *word[0];
 	pid_t pid;
 	pid = fork();
 	if(pid == 0)
@@ -92,7 +88,7 @@ int main()
 	else{
 		cout<<"Should not be in parents"<<endl;
 	}
-	
+
 		system("pause");
 	return 0;
 }
