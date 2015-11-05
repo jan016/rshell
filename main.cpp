@@ -48,7 +48,6 @@ int main()
 		}								//run for single_command.sh
 		else if(checking_first == '#'){
 			string cmd("./src./comment_command.sh ");
-			cmd += checking_first;
 			system(cmd.c_str());		//run for comment_command.sh
 			perror("invalid input");
 		}
@@ -81,7 +80,7 @@ int main()
 			}
 		}
 		int status = 0;
-		wait(status);
+		waitpid(pid, status, WNOHANG);
 		if(status != 1){
 			perror("fail to close child process");
 		}
@@ -93,7 +92,7 @@ int main()
 	else{
 		cout<<"Should not be in parents"<<endl;
 	}
-
+	
 		system("pause");
 	return 0;
 }
