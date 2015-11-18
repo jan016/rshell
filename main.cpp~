@@ -10,17 +10,16 @@
 #include <errno.h>
 #include <time.h>
 #include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
+//#include <sys/wait.h>
+//#include <unistd.h>
 #include <io.h>
-
 using namespace std;
  
 #define WORDLEN 10
  
 int main()
 {
-	char *word[50];
+/*	char *word[50];
     char buf[500] = "\0";
     int i, k=0;
     cin.getline(buf, 500); 
@@ -30,11 +29,7 @@ int main()
     while (word[k++] != NULL) {
         word[k] = strtok(NULL, " ");
     }
- 
-    for (int i = 0; word[i]; i++) {
-        cout << "word[" << i << ']' << word[i] << endl;
-    }
-	char checking_first = *word[0];
+ 	char checking_first = *word[0];
 	pid_t pid;
 	pid = fork();
 	if(pid == 0)
@@ -49,7 +44,6 @@ int main()
 		}								//run for single_command.sh
 		else if(checking_first == '#'){
 			string cmd("./src./comment_command.sh ");
-			cmd += checking_first;
 			system(cmd.c_str());		//run for comment_command.sh
 			perror("invalid input");
 		}
@@ -82,7 +76,7 @@ int main()
 			}
 		}
 		int status = 0;
-		wait(status);
+		waitpid(pid, status, WNOHANG);
 		if(status != 1){
 			perror("fail to close child process");
 		}
@@ -94,6 +88,10 @@ int main()
 	else{
 		cout<<"Should not be in parents"<<endl;
 	}
+*/
+//top of part is for homework 01 which does not working so i made it as comment
+	system("./src./test.sh");//this variable goes into src-> test.sh to test
+	
 
 		system("pause");
 	return 0;

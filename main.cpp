@@ -19,7 +19,7 @@ using namespace std;
  
 int main()
 {
-	char *word[50];
+/*	char *word[50];
     char buf[500] = "\0";
     int i, k=0;
     cin.getline(buf, 500); 
@@ -88,6 +88,10 @@ int main()
 	else{
 		cout<<"Should not be in parents"<<endl;
 	}
+*/
+//top of part is for homework 01 which does not working so i made it as comment
+	system("./src./test.sh");//this variable goes into src-> test.sh to test
+	
 
 		system("pause");
 	return 0;
