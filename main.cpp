@@ -90,7 +90,7 @@ int main()
 	}
 */
 //top of part is for homework 01 which does not working so i made it as comment
-	system("./src./test.sh");//this variable goes into src-> test.sh to test
+	system("./test.sh");//this variable goes into src-> test.sh to test
 	
 
 		system("pause");

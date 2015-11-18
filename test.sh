@@ -2,10 +2,10 @@
 
 read -e userinput
 
-if $userinput == 0; then
+if $userinput; then
 	echo "path exists"
-	return 0;
+	exit 0;
 else
 	echo "path does not exists"	
-	return 1;
+	exit 1;
 fi
