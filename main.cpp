@@ -3,7 +3,6 @@
 #include <string>
 #include <stdlib.h>
 #include <stdio.h>
-#include <direct.h>
 #include <fcntl.h>
 #include <math.h>
 #include <errno.h>
@@ -11,7 +10,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <io.h>
 #include <sys/stat.h>
 #include <vector>
 
@@ -176,7 +174,7 @@ int info_RF(char* dirName){//regular file
 }
 int info_D(char* dirName){
 	struct stat sb;
-	if((sb.st_mode & S_ISDIR)){
+	if((sb.st_mode & S_IFDIR)){
 		return 1;
 	}
 	return 0;
@@ -204,7 +202,7 @@ int info_S(char * dirName){
 }
 int info_SL(char * dirName){
 	struct stat sb;
-	if((sb.st_mode & S_IFKNK)){
+	if((sb.st_mode & S_IFLNK)){
 		return 1;
 	}
 	return 0;
