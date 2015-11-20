@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cstring>
 #include <string>
@@ -10,19 +9,17 @@
 #include <errno.h>
 #include <time.h>
 #include <sys/types.h>
-//#include <sys/wait.h>
-//#include <unistd.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #include <io.h>
 using namespace std;
- 
-#define WORDLEN 10
- 
 int main()
 {
-/*	char *word[50];
+	char *word[50];
     char buf[500] = "\0";
+	while(word[0] != "exit"){
     int i, k=0;
-    cin.getline(buf, 500); 
+	cin.getline(buf, 500); 
  
     word[k] = strtok(buf, " ");
     
@@ -30,7 +27,7 @@ int main()
         word[k] = strtok(NULL, " ");
     }
  	char checking_first = *word[0];
-	pid_t pid;
+/*	pid_t pid;
 	pid = fork();
 	if(pid == 0)
 	{
@@ -90,9 +87,132 @@ int main()
 	}
 */
 //top of part is for homework 01 which does not working so i made it as comment
-	system("./test.sh");//this variable goes into src-> test.sh to test
-	
+		if(checking_first == '[' || word[0] =="test"){
+			checking_first = *word[1];
+			if(checking_first == '-'){
+				//All functions need that file exist
+					if(word[1] == "-a" || word[1] == "-e"){ //True if <file> exist
+						cout<<"file exist"<<endl;
+					}
+					else if(word[1] == "-f"){//True if <file> exist and is regular file
+						info_RF(*word[2]);
+					}
+					else if(word[1] == "-d"){//True if <file> exist and is a directory
+						info_D(*word[2]);
+					}
+					else if(word[1] == "-c"){//True if <file> exist and is character special file
+						info_CS(*word[2]);
+					}	
+					else if(word[1] == "-b"){//True if <file> exist and is block special file
+						info_BS(*word[2]);
+					}
+					else if(word[1] == "-p"){//True if <file> exist and is named pipe
+						// need to 
+					}
+					else if(word[1] == "-S"){//True if <file> exist and is socket file
+						info_S(*word[2]);
+					}
+					else if(word[1] == "-L" || word[1] =="-h"){//True if <file> exist and is symbolic link
+						info_SL(*word[2]);
+					}
+					else if(word[1] == "-g"){//True if <file> exist and is sgid bit set
+						// need to	
+					}	
+					else if(word[1] == "-u"){//True if <file> exist and is suid bit set
+						// need to
+					}
+					else if(word[1] == "-r"){//True if <file> exist and is readable
+						info_R(*word[2]);
+					}
+					else if(word[1] == "-w"){//True if <file> exist and is writeable
+						info_W(*word[2]);
+					}
+					else if(word[1] == "-x"){//True if <file> exist and is excutable
+						info_X(*word[2]);
+					}
+					else if(word[1] == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
+						//need to	
+					}
+					else if(word[1] == "-t"){//True if file descriptor <fd> is open and refers to a terminal
+						//need to
+					}
+			}
+			checking_first = *word[2];
+			if(checking_first == '-'){ // there is two files to compare 
+				if(word[2] == "-nt"){// True if <file1> is newer than <file2>
 
-		system("pause");
+				}
+				else if(word[2] == "-ot"){// True if <file1> is older than <file2>
+
+				}
+				else if(word[2] == "-ef"){// True if <file1> and <file2> refer to the same device and inode numbers.
+
+				}
+			}
+		}
+	}
+	return 0;
+}
+int info_RF(const char * dirName){//regular file
+	struct stat sb;
+	if((sb.st_mode & S_IFREG)){
+		return 1;
+	}
+	return 0;
+}
+int info_D(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_ISDIR)){
+		return 1;
+	}
+	return 0;
+}
+int info_CS(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IFCHR)){
+		return 1;
+	}
+	return 0;
+}
+int info_BS(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IFBLK)){
+		return 1;
+	}
+	return 0;
+}
+int info_S(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IFSOCK)){
+		return 1;
+	}
+	return 0;
+}
+int info_SL(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IFKNK)){
+		return 1;
+	}
+	return 0;
+}
+ int info_R(const char * dirName){//read
+	 struct stat sb;
+	 if((sb.st_mode & S_IRUSR)){
+		return 1;
+	 }
+	 return 0;
+ }
+int info_W(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IWUSR)){
+		return 1;
+	}
+	return 0;
+}
+int info_X(const char * dirName){
+	struct stat sb;
+	if((sb.st_mode & S_IXUSR)){
+		return 1;
+	}
 	return 0;
 }
