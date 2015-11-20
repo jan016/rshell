@@ -13,6 +13,15 @@
 #include <unistd.h>
 #include <io.h>
 using namespace std;
+int info_RF(const char * dirName);
+int info_D(const char * dirName);
+int info_CS(const char * dirName);
+int info_BS(const char * dirName);
+int info_S(const char * dirName);
+int info_SL(const char * dirName);
+int info_R(const char * dirName);
+int info_W(const char * dirName);
+int info_X(const char * dirName);
 int main()
 {
 	char *word[50];
