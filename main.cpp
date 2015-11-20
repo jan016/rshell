@@ -13,15 +13,15 @@
 #include <unistd.h>
 #include <io.h>
 using namespace std;
-int info_RF(const char * dirName);
-int info_D(const char * dirName);
-int info_CS(const char * dirName);
-int info_BS(const char * dirName);
-int info_S(const char * dirName);
-int info_SL(const char * dirName);
-int info_R(const char * dirName);
-int info_W(const char * dirName);
-int info_X(const char * dirName);
+int info_RF(char* dirName);
+int info_D(char* dirName);
+int info_CS(char* dirName);
+int info_BS(char* dirName);
+int info_S(char* dirName);
+int info_SL(char* dirName);
+int info_R(char* dirName);
+int info_W(char* dirName);
+int info_X(char* dirName);
 int main()
 {
 	char *word[50];
@@ -162,14 +162,14 @@ int main()
 	}
 	return 0;
 }
-int info_RF(const char * dirName){//regular file
+int info_RF(char* dirName){//regular file
 	struct stat sb;
 	if((sb.st_mode & S_IFREG)){
 		return 1;
 	}
 	return 0;
 }
-int info_D(const char * dirName){
+int info_D(char* dirName){
 	struct stat sb;
 	if((sb.st_mode & S_ISDIR)){
 		return 1;
