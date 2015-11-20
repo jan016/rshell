@@ -12,6 +12,9 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <io.h>
+#include <sys/stat.h>
+#include <vector>
+
 using namespace std;
 int info_RF(char* dirName);
 int info_D(char* dirName);
