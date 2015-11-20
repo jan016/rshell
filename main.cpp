@@ -100,29 +100,31 @@ int main()
 			checking_first = *word[1];
 			if(checking_first == '-'){
 				//All functions need that file exist
+					vector<char *> dirlist;
+					dirlist.push_back(word[2]);
 					if(word[1] == "-a" || word[1] == "-e"){ //True if <file> exist
 						cout<<"file exist"<<endl;
 					}
 					else if(word[1] == "-f"){//True if <file> exist and is regular file
-						info_RF(*word[2]);
+						info_RF(dirlist.front());
 					}
 					else if(word[1] == "-d"){//True if <file> exist and is a directory
-						info_D(*word[2]);
+						info_D(dirlist.front());
 					}
 					else if(word[1] == "-c"){//True if <file> exist and is character special file
-						info_CS(*word[2]);
+						info_CS(dirlist.front());
 					}	
 					else if(word[1] == "-b"){//True if <file> exist and is block special file
-						info_BS(*word[2]);
+						info_BS(dirlist.front());
 					}
 					else if(word[1] == "-p"){//True if <file> exist and is named pipe
 						// need to 
 					}
 					else if(word[1] == "-S"){//True if <file> exist and is socket file
-						info_S(*word[2]);
+						info_S(dirlist.front());
 					}
 					else if(word[1] == "-L" || word[1] =="-h"){//True if <file> exist and is symbolic link
-						info_SL(*word[2]);
+						info_SL(dirlist.front());
 					}
 					else if(word[1] == "-g"){//True if <file> exist and is sgid bit set
 						// need to	
@@ -131,13 +133,13 @@ int main()
 						// need to
 					}
 					else if(word[1] == "-r"){//True if <file> exist and is readable
-						info_R(*word[2]);
+						info_R(dirlist.front());
 					}
 					else if(word[1] == "-w"){//True if <file> exist and is writeable
-						info_W(*word[2]);
+						info_W(dirlist.front());
 					}
 					else if(word[1] == "-x"){//True if <file> exist and is excutable
-						info_X(*word[2]);
+						info_X(dirlist.front());
 					}
 					else if(word[1] == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
 						//need to	
