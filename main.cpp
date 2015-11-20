@@ -176,49 +176,49 @@ int info_D(char* dirName){
 	}
 	return 0;
 }
-int info_CS(const char * dirName){
+int info_CS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFCHR)){
 		return 1;
 	}
 	return 0;
 }
-int info_BS(const char * dirName){
+int info_BS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFBLK)){
 		return 1;
 	}
 	return 0;
 }
-int info_S(const char * dirName){
+int info_S(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFSOCK)){
 		return 1;
 	}
 	return 0;
 }
-int info_SL(const char * dirName){
+int info_SL(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFKNK)){
 		return 1;
 	}
 	return 0;
 }
- int info_R(const char * dirName){//read
+ int info_R(char * dirName){//read
 	 struct stat sb;
 	 if((sb.st_mode & S_IRUSR)){
 		return 1;
 	 }
 	 return 0;
  }
-int info_W(const char * dirName){
+int info_W(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IWUSR)){
 		return 1;
 	}
 	return 0;
 }
-int info_X(const char * dirName){
+int info_X(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IXUSR)){
 		return 1;
