@@ -38,8 +38,6 @@ int main()
     }
 	char checking_first = *word[1];
 	char checking_second = *word[2];
-	string check_file = word[2];
-	string check_file1 =word[3];
 	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-')){
 		cout<<"input does not exist. filename entered: " <<check_file<<endl;
 		return -1;
@@ -114,53 +112,30 @@ int main()
 					checking = word[1];
 					vector<char *> dirlist;
 					dirlist.push_back(word[2]);
+					cout<<dirlist.front();<<endl;
 					if(checking == "-a" || checking == "-e"){ //True if <file> exist
 						cout<<"file exist"<<endl;
 					}
 					else if(checking == "-f"){//True if <file> exist and is regular file
-						if(info_RF(dirlist.front()) == 1){
-						cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_RF(dirlist.front());
 					}
 					else if(checking == "-d"){//True if <file> exist and is a directory
-						if(info_D(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_D(dirlist.front());
 					}
 					else if(checking == "-c"){//True if <file> exist and is character special file
-						if(info_CS(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_CS(dirlist.front());
 					}	
 					else if(checking == "-b"){//True if <file> exist and is block special file
-						if(info_BS(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_BS(dirlist.front());
 					}
 					else if(checking == "-p"){//True if <file> exist and is named pipe
 						// need to 
 					}
 					else if(checking == "-S"){//True if <file> exist and is socket file
-						if(info_S(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_S(dirlist.front());
 					}
 					else if(checking == "-L" || checking == "-h"){//True if <file> exist and is symbolic link
-						if(info_SL(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_SL(dirlist.front());
 					}
 					else if(checking == "-g"){//True if <file> exist and is sgid bit set
 						// need to	
@@ -170,26 +145,12 @@ int main()
 					}
 					else if(checking == "-r"){//True if <file> exist and is readable
 						cout<< "passing through -r "<<endl;
-						if(info_R(dirlist.front())){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
+						info_R(dirlist.front());
 					}
 					else if(checking == "-w"){//True if <file> exist and is writeable
-						if(info_W(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
-					}
+						info_W(dirlist.front());
 					else if(checking == "-x"){//True if <file> exist and is excutable
-						if(info_X(dirlist.front()) == 1){
-							cout<<"file exist"<<endl;
-						}
-						else
-							cout<<"file does not exist"<<endl;
-					}
+						info_X(dirlist.front());
 					else if(checking == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
 						//need to	
 					}
@@ -217,6 +178,7 @@ int main()
 int info_RF(char* dirName){//regular file
 	struct stat sb;
 	if((sb.st_mode & S_IFREG)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -224,6 +186,7 @@ int info_RF(char* dirName){//regular file
 int info_D(char* dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFDIR)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -231,6 +194,7 @@ int info_D(char* dirName){
 int info_CS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFCHR)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -238,6 +202,7 @@ int info_CS(char * dirName){
 int info_BS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFBLK)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -245,6 +210,7 @@ int info_BS(char * dirName){
 int info_S(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFSOCK)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -252,6 +218,7 @@ int info_S(char * dirName){
 int info_SL(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFLNK)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -259,6 +226,7 @@ int info_SL(char * dirName){
  int info_R(char * dirName){//read
 	 struct stat sb;
 	 if((sb.st_mode & S_IRUSR)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	 }
 	 return 0;
@@ -266,6 +234,7 @@ int info_SL(char * dirName){
 int info_W(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IWUSR)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
@@ -273,6 +242,7 @@ int info_W(char * dirName){
 int info_X(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IXUSR)){
+		cout<<"file exist"<<Endl;
 		return 1;
 	}
 	return 0;
