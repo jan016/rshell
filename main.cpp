@@ -27,7 +27,6 @@ int main()
 {
 	char *word[50];
     char buf[500] = "\0";
-	while(word[0] != "exit"){
     int i, k=0;
 	cin.getline(buf, 500); 
  
@@ -198,7 +197,6 @@ int main()
 				}
 			}
 		}
-	}
 	return 0;
 }
 int info_RF(char* dirName){//regular file
