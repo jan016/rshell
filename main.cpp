@@ -112,7 +112,7 @@ int main()
 					checking = word[1];
 					vector<char *> dirlist;
 					dirlist.push_back(word[2]);
-					cout<<dirlist.front();<<endl;
+					cout<<dirlist.front()<<endl;
 					if(checking == "-a" || checking == "-e"){ //True if <file> exist
 						cout<<"file exist"<<endl;
 					}
@@ -149,8 +149,10 @@ int main()
 					}
 					else if(checking == "-w"){//True if <file> exist and is writeable
 						info_W(dirlist.front());
+					}
 					else if(checking == "-x"){//True if <file> exist and is excutable
 						info_X(dirlist.front());
+					}
 					else if(checking == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
 						//need to	
 					}
@@ -178,72 +180,81 @@ int main()
 int info_RF(char* dirName){//regular file
 	struct stat sb;
 	if((sb.st_mode & S_IFREG)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. its regular file"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not its regular file"<<endl;
 	return 0;
 }
 int info_D(char* dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFDIR)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. its directory"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not its directory"<<endl;
 	return 0;
 }
 int info_CS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFCHR)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. character special"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not character special"<<endl;
 	return 0;
 }
 int info_BS(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFBLK)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. block special "<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not block special "<<endl;
 	return 0;
 }
 int info_S(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFSOCK)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. socket file"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not socket file"<<endl;
 	return 0;
 }
 int info_SL(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IFLNK)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. symbolic link"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not symbolic link"<<endl;
 	return 0;
 }
  int info_R(char * dirName){//read
 	 struct stat sb;
 	 if((sb.st_mode & S_IRUSR)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. readable"<<endl;
 		return 1;
 	 }
+		cout<<"file exist. but not readable"<<endl;
 	 return 0;
  }
 int info_W(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IWUSR)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. writeable"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not writeable"<<endl;
 	return 0;
 }
 int info_X(char * dirName){
 	struct stat sb;
 	if((sb.st_mode & S_IXUSR)){
-		cout<<"file exist"<<Endl;
+		cout<<"file exist. excutable"<<endl;
 		return 1;
 	}
+		cout<<"file exist. but not excutable"<<endl;
 	return 0;
 }
