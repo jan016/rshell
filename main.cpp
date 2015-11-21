@@ -35,7 +35,7 @@ int main()
     while (word[k++] != NULL) {
         word[k] = strtok(NULL, " ");
     }
- 	char checking_first = word[0];
+ 	char checking_first = *word[0];
 /*	pid_t pid;
 	pid = fork();
 	if(pid == 0)
@@ -97,9 +97,9 @@ int main()
 */
 //top of part is for homework 01 which does not working so i made it as comment
 	cout<<"program is passing through get cin"<<endl;
-		if(checking_first == '[' || word[0] =="test"){
+		if(checking_first == '[' || checking_first == 't'){
 				cout<<"program is passing through checking_first == [ or test "<<endl;
-			checking_first = word[1];
+			checking_first = *word[1];
 			if(checking_first == '-'){
 				cout<<"program is passing through '-' "<<endl;
 				//All functions need that file exist
