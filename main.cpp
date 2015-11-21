@@ -107,25 +107,49 @@ int main()
 						cout<<"file exist"<<endl;
 					}
 					else if(word[1] == "-f"){//True if <file> exist and is regular file
-						info_RF(dirlist.front());
+						if(info_RF(dirlist.front()) == 1){
+						cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-d"){//True if <file> exist and is a directory
-						info_D(dirlist.front());
+						if(info_D(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-c"){//True if <file> exist and is character special file
-						info_CS(dirlist.front());
+						if(info_CS(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}	
 					else if(word[1] == "-b"){//True if <file> exist and is block special file
-						info_BS(dirlist.front());
+						if(info_BS(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-p"){//True if <file> exist and is named pipe
 						// need to 
 					}
 					else if(word[1] == "-S"){//True if <file> exist and is socket file
-						info_S(dirlist.front());
+						if(info_S(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-L" || word[1] =="-h"){//True if <file> exist and is symbolic link
-						info_SL(dirlist.front());
+						if(info_SL(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-g"){//True if <file> exist and is sgid bit set
 						// need to	
@@ -134,13 +158,25 @@ int main()
 						// need to
 					}
 					else if(word[1] == "-r"){//True if <file> exist and is readable
-						info_R(dirlist.front());
+						if(info_R(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-w"){//True if <file> exist and is writeable
-						info_W(dirlist.front());
+						if(info_W(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-x"){//True if <file> exist and is excutable
-						info_X(dirlist.front());
+						if(info_X(dirlist.front()) == 1){
+							cout<<"file exist"<<endl;
+						}
+						else
+							cout<<"file does not exist"<<endl;
 					}
 					else if(word[1] == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
 						//need to	
