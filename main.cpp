@@ -100,7 +100,7 @@ int main()
 		if(checking == "[" || checking == "test"){
 				cout<<"program is passing through checking_first == [ or test "<<endl;
 			char checking_first = *word[1];
-			if(checking == '-'){
+			if(checking_first == '-'){
 				cout<<"program is passing through '-' "<<endl;
 				//All functions need that file exist
 					checking = word[1];
