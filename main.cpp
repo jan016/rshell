@@ -40,7 +40,7 @@ int main()
 	char checking_second = *word[2];
 	string check_file = word[2];
 	string check_file1 =word[3];
-	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-'){
+	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-')){
 		cout<<"input does not exist. filename entered: " <<check_file<<endl;
 		return -1;
 	}
