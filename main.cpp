@@ -96,9 +96,12 @@ int main()
 	}
 */
 //top of part is for homework 01 which does not working so i made it as comment
+	cout<<"program is passing through get cin"<<endl;
 		if(checking_first == '[' || word[0] =="test"){
+				cout<<"program is passing through checking_first == [ or test "<<endl;
 			checking_first = *word[1];
 			if(checking_first == '-'){
+				cout<<"program is passing through '-' "<<endl;
 				//All functions need that file exist
 					vector<char *> dirlist;
 					dirlist.push_back(word[2]);
