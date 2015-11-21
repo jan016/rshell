@@ -38,6 +38,7 @@ int main()
     }
 	char checking_first = *word[1];
 	char checking_second = *word[2];
+	string check_file = word[2];
 	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-')){
 		cout<<"input does not exist. filename entered: " <<check_file<<endl;
 		return -1;
@@ -179,6 +180,11 @@ int main()
 }
 int info_RF(char* dirName){//regular file
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFREG)){
 		cout<<"file exist. its regular file"<<endl;
 		return 1;
@@ -188,6 +194,11 @@ int info_RF(char* dirName){//regular file
 }
 int info_D(char* dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFDIR)){
 		cout<<"file exist. its directory"<<endl;
 		return 1;
@@ -197,6 +208,11 @@ int info_D(char* dirName){
 }
 int info_CS(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFCHR)){
 		cout<<"file exist. character special"<<endl;
 		return 1;
@@ -206,6 +222,11 @@ int info_CS(char * dirName){
 }
 int info_BS(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFBLK)){
 		cout<<"file exist. block special "<<endl;
 		return 1;
@@ -215,6 +236,11 @@ int info_BS(char * dirName){
 }
 int info_S(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFSOCK)){
 		cout<<"file exist. socket file"<<endl;
 		return 1;
@@ -224,6 +250,11 @@ int info_S(char * dirName){
 }
 int info_SL(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IFLNK)){
 		cout<<"file exist. symbolic link"<<endl;
 		return 1;
@@ -233,6 +264,11 @@ int info_SL(char * dirName){
 }
  int info_R(char * dirName){//read
 	 struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	 if((sb.st_mode & S_IRUSR)){
 		cout<<"file exist. readable"<<endl;
 		return 1;
@@ -242,6 +278,11 @@ int info_SL(char * dirName){
  }
 int info_W(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IWUSR)){
 		cout<<"file exist. writeable"<<endl;
 		return 1;
@@ -251,6 +292,11 @@ int info_W(char * dirName){
 }
 int info_X(char * dirName){
 	struct stat sb;
+    if(stat(dirName, &sb)==-1)
+    {
+        perror("stat");
+    }
+
 	if((sb.st_mode & S_IXUSR)){
 		cout<<"file exist. excutable"<<endl;
 		return 1;
