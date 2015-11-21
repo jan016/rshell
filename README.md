@@ -8,7 +8,7 @@ ucrnetid1 = jan016
 github = jan016
 
 gitur1 = https://www.github.com/jan016/rshell.git
-
+Homework 01
 There is main.cpp which controls all files.
 
 I made somefiles to run system.
@@ -36,3 +36,13 @@ fork() is to create child process to have multi process.
 wait() , waitpid() is to delete child process. If this commands do not exist, child process is going to change to the zombie process. the difference of wait() and waitpid() functions are if the child process does not present, wait() can not handle this situation but waitpid() function can do that. 
 
 I'm sure that I don't understand concept of this homework01 because of lack of information that I have.
+-> all homework 01 part changed to comment /* */
+
+Homework 02
+
+i only possible to finish test command and [] commands.
+
+I can possible to compile with g++ -g main.cpp -o ex1. (I don't know what happen to my putty server but i can't git push --all. It say access deniend.. but I could finish with this by using cmd :D
+
+Most of Idea is coming from lab06 that we already finished. st_mode <<
+
