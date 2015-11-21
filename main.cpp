@@ -162,7 +162,7 @@ int main()
 					}
 					else if(checking == "-r"){//True if <file> exist and is readable
 						cout<< "passing through -r "<<endl;
-						if(info_R(dirlist.front()) == 1){
+						if(info_R(dirlist.front())){
 							cout<<"file exist"<<endl;
 						}
 						else
