@@ -97,7 +97,7 @@ int main()
 */
 //top of part is for homework 01 which does not working so i made it as comment
 	cout<<"program is passing through get cin"<<endl;
-		if(checking_first == '[' || checking_first == 't'){
+		if(*word[0] == '[' || *word[0] == 'test'){
 				cout<<"program is passing through checking_first == [ or test "<<endl;
 			checking_first = *word[1];
 			if(checking_first == '-'){
@@ -105,97 +105,97 @@ int main()
 				//All functions need that file exist
 					vector<char *> dirlist;
 					dirlist.push_back(word[2]);
-					if(word[1] == "-a" || word[1] == "-e"){ //True if <file> exist
+					if(*word[1] == '-a' || *word[1] == '-e'){ //True if <file> exist
 						cout<<"file exist"<<endl;
 					}
-					else if(word[1] == "-f"){//True if <file> exist and is regular file
+					else if(*word[1] == '-f'){//True if <file> exist and is regular file
 						if(info_RF(dirlist.front()) == 1){
 						cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-d"){//True if <file> exist and is a directory
+					else if(*word[1] == '-d'){//True if <file> exist and is a directory
 						if(info_D(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-c"){//True if <file> exist and is character special file
+					else if(*word[1] == '-c'){//True if <file> exist and is character special file
 						if(info_CS(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}	
-					else if(word[1] == "-b"){//True if <file> exist and is block special file
+					else if(*word[1] == '-b'){//True if <file> exist and is block special file
 						if(info_BS(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-p"){//True if <file> exist and is named pipe
+					else if(*word[1] == '-p'){//True if <file> exist and is named pipe
 						// need to 
 					}
-					else if(word[1] == "-S"){//True if <file> exist and is socket file
+					else if(*word[1] == '-S'){//True if <file> exist and is socket file
 						if(info_S(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-L" || word[1] =="-h"){//True if <file> exist and is symbolic link
+					else if(*word[1] == '-L' || *word[1] == '-h'){//True if <file> exist and is symbolic link
 						if(info_SL(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-g"){//True if <file> exist and is sgid bit set
+					else if(*word[1] == '-g'){//True if <file> exist and is sgid bit set
 						// need to	
 					}	
-					else if(word[1] == "-u"){//True if <file> exist and is suid bit set
+					else if(*word[1] == '-u'){//True if <file> exist and is suid bit set
 						// need to
 					}
-					else if(word[1] == "-r"){//True if <file> exist and is readable
+					else if(*word[1] == '-r'){//True if <file> exist and is readable
 						if(info_R(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-w"){//True if <file> exist and is writeable
+					else if(*word[1] == '-w'){//True if <file> exist and is writeable
 						if(info_W(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-x"){//True if <file> exist and is excutable
+					else if(*word[1] == '-x'){//True if <file> exist and is excutable
 						if(info_X(dirlist.front()) == 1){
 							cout<<"file exist"<<endl;
 						}
 						else
 							cout<<"file does not exist"<<endl;
 					}
-					else if(word[1] == "-s"){//True if <file> exist and size of file is bigger than 0 (not empty)
+					else if(*word[1] == '-s'){//True if <file> exist and size of file is bigger than 0 (not empty)
 						//need to	
 					}
-					else if(word[1] == "-t"){//True if file descriptor <fd> is open and refers to a terminal
+					else if(*word[1] == '-t'){//True if file descriptor <fd> is open and refers to a terminal
 						//need to
 					}
 			}
 			checking_first = *word[2];
 			if(checking_first == '-'){ // there is two files to compare 
-				if(word[2] == "-nt"){// True if <file1> is newer than <file2>
+				if(*word[2] == '-nt'){// True if <file1> is newer than <file2>
 
 				}
-				else if(word[2] == "-ot"){// True if <file1> is older than <file2>
+				else if(*word[2] == '-ot'){// True if <file1> is older than <file2>
 
 				}
-				else if(word[2] == "-ef"){// True if <file1> and <file2> refer to the same device and inode numbers.
+				else if(*word[2] == '-ef'){// True if <file1> and <file2> refer to the same device and inode numbers.
 
 				}
 			}
