@@ -36,13 +36,6 @@ int main()
     while (word[k++] != NULL) {
         word[k] = strtok(NULL, " ");
     }
-	char checking_first = *word[1];
-	char checking_second = *word[2];
-	string check_file = word[2];
-	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-')){
-		cout<<"input does not exist. filename entered: " <<check_file<<endl;
-		return -1;
-	}
  	string checking = word[0];
 /*	pid_t pid;
 	pid = fork();
@@ -104,11 +97,15 @@ int main()
 	}
 */
 //top of part is for homework 01 which does not working so i made it as comment
-	cout<<"program is passing through get cin"<<endl;
 		if(checking == "[" || checking == "test"){
-				cout<<"program is passing through checking_first == [ or test "<<endl;
 			if(checking_first == '-'){
-				cout<<"program is passing through '-' "<<endl;
+	char checking_first = *word[1];
+	char checking_second = *word[2];
+	string check_file = word[2];
+	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-')){
+		cout<<"input does not exist. filename entered: " <<check_file<<endl;
+		return -1;
+	}
 				//All functions need that file exist
 					checking = word[1];
 					vector<char *> dirlist;
@@ -145,7 +142,6 @@ int main()
 						// need to
 					}
 					else if(checking == "-r"){//True if <file> exist and is readable
-						cout<< "passing through -r "<<endl;
 						info_R(dirlist.front());
 					}
 					else if(checking == "-w"){//True if <file> exist and is writeable
