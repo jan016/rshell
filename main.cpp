@@ -28,6 +28,7 @@ int main()
 	char *word[50];
     char buf[500] = "\0";
     int i, k=0;
+	struct stat sb;
 	cin.getline(buf, 500); 
  
     word[k] = strtok(buf, " ");
@@ -35,6 +36,14 @@ int main()
     while (word[k++] != NULL) {
         word[k] = strtok(NULL, " ");
     }
+	char checking_first = *word[1];
+	char checking_second = *word[2];
+	string check_file = word[2];
+	string check_file1 =word[3];
+	if(stat ( word[2], &sb) != 0 && (checking_first != '-' || checking_second != '-'){
+		cout<<"input does not exist. filename entered: " <<check_file<<endl;
+		return -1;
+	}
  	string checking = word[0];
 /*	pid_t pid;
 	pid = fork();
@@ -99,7 +108,6 @@ int main()
 	cout<<"program is passing through get cin"<<endl;
 		if(checking == "[" || checking == "test"){
 				cout<<"program is passing through checking_first == [ or test "<<endl;
-			char checking_first = *word[1];
 			if(checking_first == '-'){
 				cout<<"program is passing through '-' "<<endl;
 				//All functions need that file exist
@@ -191,7 +199,7 @@ int main()
 					else
 						cout<<"invalid command"<<endl;
 			}
-			checking_first = *word[2];
+	/*		checking_first = *word[2];
 			if(checking_first == '-'){ // there is two files to compare 
 				if(*word[2] == '-nt'){// True if <file1> is newer than <file2>
 
@@ -202,7 +210,7 @@ int main()
 				else if(*word[2] == '-ef'){// True if <file1> and <file2> refer to the same device and inode numbers.
 
 				}
-			}
+			}*/
 		}
 	return 0;
 }
